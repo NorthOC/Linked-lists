@@ -33,10 +33,13 @@ class LinkedList
 		else
 			node.next_node = @head
 			@head = node
+			if @tail == nil
 			starting_point = @head
 			until starting_point.next_node == nil
-			starting_point = starting_point.next_node		 end
-		@tail = starting_point
+			starting_point = starting_point.next_node
+			end
+			@tail = starting_point
+			end
 		end
 	end
 
@@ -151,9 +154,12 @@ end
 
 list = LinkedList.new
 
-list.append("ice cream")
-list.append("cereal")
-list.append("KFC")
-list.prepend("salad")
-p list.find("KFC")
-puts list.to_s
+list.prepend("milka")
+list.prepend("toblerone")
+list.append("willy wonka")
+p list.head
+p list.tail
+print list.to_s
+p list.at(2)
+p list.find("milka")
+p list.contains?("shogetten")
